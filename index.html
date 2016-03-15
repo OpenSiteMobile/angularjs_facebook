@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>angular-facebook login demo</title>
+
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336.min.css">
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v336_theme.min.css">
+    <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
+
+    <script src="../mobilesiteos/msos/base.uc.js"></script>
+    <script src="../mobilesiteos/jquery/v300_msos.uc.js"></script>
+    <script src="../mobilesiteos/jquery/ui/v1120.uc.js"></script>
+    <script src="../mobilesiteos/ng/v150_msos.uc.js"></script>
+    <script src="../mobilesiteos/ng/util/facebook.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body data-ng-controller="MainController">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <div class="page-header">
+                    <h1>Hello angular-facebook! <small><a href="http://www.facebook.com/luiscarlosjayk" target="_blank">by Ciul</a></small> </h1>
+                </div>
+
+                <div>
+                    <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
+                    <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+                <button type="button" class="btn btn-danger btn-large"  data-ng-show="logged"  data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+
+                <div>
+                    <debug val="user"></debug>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script data-ng-ignore>
+        // Bootstrap our simple demo
+        angular.bootstrap('body', ['CiulApp']);
+    </script>
+</body>
+</html>
